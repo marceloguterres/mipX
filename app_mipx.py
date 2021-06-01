@@ -27,13 +27,8 @@ st.markdown("""
 st.write("Here's our first attempt at using data to create a table:")
 
 
-def get_data_mipita():
-     df_mipita_all = pd.read_pickle("df_mipita_all.pkl")
-     return(df_mipita_all)
- 
-    
- 
-df_mipita_all = get_data_mipita()
+
+df_mipita_all = pd.read_pickle("df_mipita_all.pkl")
 
 df_mipita_all
 
