@@ -8,6 +8,7 @@ Created on Thu May 13 09:40:48 2021
 
 import pandas as pd
 import streamlit as st
+import pickle    
 
 
 # -- Set page config
@@ -27,13 +28,7 @@ st.markdown("""
 st.write("Here's our first attempt at using data to create a table:")
 
 
-
-df_mipita_all = pd.read_pickle("df_mipita_all.pkl")
-
+f = open('df_mipita_all.pkl', 'rb')   # 'rb' for reading binary file
+df_mipita_all = pickle.load(f)     
+f.close()    
 df_mipita_all
-
-
-
-
-
-    
