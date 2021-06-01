@@ -6,7 +6,7 @@ Created on Thu May 13 09:40:48 2021
 @author: guterres
 """
 
-
+import pandas as pd
 import streamlit as st
 
 
@@ -27,10 +27,15 @@ st.markdown("""
 st.write("Here's our first attempt at using data to create a table:")
 
 
+def get_data_mipita():
+     df_mipita_all = pd.read_pickle("df_mipita_all.pkl")
+     return(df_mipita_all)
+ 
+    
+ 
+df_mipita_all = get_data_mipita()
 
-
-
-
+df_mipita_all
 
 
 
