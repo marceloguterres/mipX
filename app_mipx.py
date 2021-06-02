@@ -64,6 +64,13 @@ fig = px.line(df_mipita_all, x="ano", y= option, color="icao")
 st.write(fig)
 
 
+
+
+
+
+
+
+
 st.subheader("About this app:")
 st.markdown("""
  * Este app foi construído pelo ITA para apresentar as ferramentas da metodologia IMPACTO desenvolvidas para SAC ;
