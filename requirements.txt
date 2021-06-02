@@ -1,9 +1,3 @@
 pandas
 streamlit
-
-
-df_mipita_all = pd.read_pickle("df_mipita_all.pkl")
- 
-path = 'df_mipita_all.bz2'
-
-df_mipita_all.to_pickle(path, protocol=2)
+plotly
