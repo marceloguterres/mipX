@@ -67,6 +67,7 @@ st.write(fig)
 
 st.subheader("About this app")
 st.markdown("""
- * Este site foi construído pelo ITA para apresentar as ferramentas da metodologia IMPACTO desenvolvidas para o SAC e é um trabalho em andamento.
+ * Este site foi construído pelo ITA para apresentar as ferramentas da metodologia IMPACTO desenvolvidas para SAC ;
+ * O trabalho está em andamento;
  * ©2019-2021, Instituto Tecnológico de Aeronáutica (ITA), todos os direitos reservados.
 """)
