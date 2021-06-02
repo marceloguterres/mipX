@@ -40,8 +40,13 @@ st.markdown("""
 st.dataframe(df_mipita_all.style.highlight_max(axis=0))
 
 
-st.write('You selected:', option)
+st.markdown("""
 
+            """)
+        
+st.subheader('You selected:') 
+
+st.write(option)
 
 
 fig = px.line(df_mipita_all, x="ano", y= option, color="icao")
