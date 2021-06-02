@@ -26,13 +26,14 @@ option = st.sidebar.selectbox('Select the multiplier?', list_mults)
 
 st.apptitle = 'MIPITA v1.0'
 
+
 st.title('PROJETO IMPACTO O1-E7-IMPACTO')
 
 st.markdown(""" 
-            * APP MIPITA v 1.0
-            * Data da versão: 2021.06.01
-            * Estudo de Caso: Região Litorânea de Santa Catarina
-            * Estudo de Caso: Região metropolitana de São Paulo
+            * APP MIPITA v 1.0;
+            * Data da versão: 2021.06.01;
+            * Estudo de Caso: Região Litorânea de Santa Catarina;
+            * Estudo de Caso: Região metropolitana de São Paulo.
             """)
             
             
@@ -49,25 +50,23 @@ with st.beta_expander("See notes"):
 st.dataframe(df_mipita_all.style.highlight_max(axis=0))
 
 
-st.markdown("""
 
-            """)
-        
-st.subheader('You selected:') 
-
-st.write(option)
-
+st.subheader("Plot:") 
+         
+st.markdown(""" 
+            * Use the menu at left to select data and set plot parameters;
+            * Your plots will appear below.
+ """)
+            
+st.write("*You selected*:", option)
 
 fig = px.line(df_mipita_all, x="ano", y= option, color="icao")
-
 st.write(fig)
 
 
-
-
-st.subheader("About this app")
+st.subheader("About this app:")
 st.markdown("""
- * Este site foi construído pelo ITA para apresentar as ferramentas da metodologia IMPACTO desenvolvidas para SAC ;
+ * Este app foi construído pelo ITA para apresentar as ferramentas da metodologia IMPACTO desenvolvidas para SAC ;
  * O trabalho está em andamento;
  * ©2019-2021, Instituto Tecnológico de Aeronáutica (ITA), todos os direitos reservados.
 """)
