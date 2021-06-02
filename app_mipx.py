@@ -36,6 +36,15 @@ st.markdown("""
             """)
             
             
+st.subheader('General table:') 
+
+# -- Notes on whitening
+
+with st.beta_expander("See notes"):
+    st.markdown("""
+                * The values in yellow color correspond to the maximums of each column. 
+
+""")
 
 st.dataframe(df_mipita_all.style.highlight_max(axis=0))
 
@@ -54,3 +63,10 @@ fig = px.line(df_mipita_all, x="ano", y= option, color="icao")
 st.write(fig)
 
 
+
+
+st.subheader("About this app")
+st.markdown("""
+ * Este site foi construído pelo ITA para apresentar as ferramentas da metodologia IMPACTO desenvolvidas para o SAC e é um trabalho em andamento.
+ * ©2019-2021, Instituto Tecnológico de Aeronáutica (ITA), todos os direitos reservados.
+""")
