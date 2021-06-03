@@ -37,6 +37,9 @@ input_mult_02  = st.sidebar.selectbox('Selecione o multiplicador 2?', list_mults
 
 
 
+
+st.image('ita-logo.png', width=200)
+
 st.apptitle = 'MIPITA v1.0'
 
 
