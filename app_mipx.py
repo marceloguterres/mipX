@@ -106,6 +106,14 @@ fig2 = px.scatter(df_mipita_filter, x=input_mult_02, y= input_mult_01,
 st.write(fig2)
 
 
+st.subheader("Regrssão OLS") 
+
+results = px.get_trendline_results(fig2)
+
+st.write(results.px_fit_results.iloc[0].summary())
+
+
+
 
 st.subheader('Tabela geral') 
 
