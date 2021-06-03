@@ -70,7 +70,8 @@ st.markdown("""
             * Estudo de Caso: Região metropolitana de São Paulo.
             """)
     
-            
+ #-----------------------------------------------------------------------------------      
+  
 st.subheader("Instruções") 
 
 st.markdown(""" 
@@ -79,6 +80,7 @@ st.markdown("""
  """)
      
     
+#-----------------------------------------------------------------------------------
 st.subheader("Gráfico da série temporal") 
          
        
@@ -93,27 +95,37 @@ fig = px.line(df_mipita_filter,
 st.write(fig)
 
 
-st.subheader("Gráfico de dispersão") 
+#-----------------------------------------------------------------------------------
 
-st.write( input_mult_02 , " x" , input_mult_01)
+st.subheader("Regressão geral e Gráfico de dispersão") 
+
+st.write(input_mult_02 , " x" , input_mult_01)
 
          
 fig2 = px.scatter(df_mipita_filter, x=input_mult_02, y= input_mult_01, 
-                  trendline="ols",
-                  template=input_template)
-
+                  trendline="ols")
 
 st.write(fig2)
 
 
-st.subheader("Regrssão OLS") 
+results_ols_all = px.get_trendline_results(fig2)
 
-results = px.get_trendline_results(fig2)
-
-st.write(results.px_fit_results.iloc[0].summary())
+st.write(results_ols_all.px_fit_results.iloc[0].summary())
 
 
+#-----------------------------------------------------------------------------------
 
+st.subheader("Tendência por aeroporto") 
+
+fig3 = px.scatter(df_mipita_filter, x=input_mult_02, y= input_mult_01, 
+                  trendline="ols",
+                  color="icao",
+                  template=input_template)
+
+
+st.write(fig3)
+
+#-----------------------------------------------------------------------------------
 
 st.subheader('Tabela geral') 
 
