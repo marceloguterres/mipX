@@ -77,7 +77,7 @@ st.subheader("Gráfico de dispersão:")
 st.write( input_mult_02 , " x" , input_mult_01)
 
          
-fig2 = px.scatter(df_mipita_all, x=input_mult_02, y= input_mult_01)
+fig2 = px.scatter(df_mipita_all, x=input_mult_02, y= input_mult_01, template=input_template)
 
 
 st.write(fig2)
