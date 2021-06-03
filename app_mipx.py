@@ -70,7 +70,6 @@ st.markdown("""
             * Estudo de Caso: Região metropolitana de São Paulo.
             """)
     
- #-----------------------------------------------------------------------------------      
   
 st.subheader("Instruções") 
 
@@ -81,7 +80,7 @@ st.markdown("""
      
     
 #-----------------------------------------------------------------------------------
-st.subheader("Gráfico da série temporal") 
+st.subheader("Análise temporal") 
          
        
 st.write("*Multiplicador selecionado*:", input_mult_01)
@@ -97,7 +96,7 @@ st.write(fig)
 
 #-----------------------------------------------------------------------------------
 
-st.subheader("Regressão geral e Gráfico de dispersão") 
+st.subheader("Análise da tendência geral") 
 
 st.write(input_mult_02 , " x" , input_mult_01)
 
@@ -115,7 +114,7 @@ st.write(results_ols_all.px_fit_results.iloc[0].summary())
 
 #-----------------------------------------------------------------------------------
 
-st.subheader("Tendência por aeroporto") 
+st.subheader("Análise da tendência por aeroporto") 
 
 fig3 = px.scatter(df_mipita_filter, x=input_mult_02, y= input_mult_01, 
                   trendline="ols",
