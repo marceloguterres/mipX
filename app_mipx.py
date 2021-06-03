@@ -50,7 +50,7 @@ st.markdown("""
             """)
     
             
-st.subheader("Instruções:") 
+st.subheader("Instruções") 
 
 st.markdown(""" 
             * Use o menu à esquerda para selecionar os dados e definir os parâmetros do gráfico;
