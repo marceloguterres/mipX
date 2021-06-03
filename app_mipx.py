@@ -11,6 +11,11 @@ import streamlit as st
 import plotly.express as px
 
 
+#-----------------------------------------------------------------------------------
+
+# Set page title and favicon.
+st.set_page_config(page_title="Projeto Impacto", page_icon='ita-logo.png')
+
 
 #-----------------------------------------------------------------------------------
 
@@ -52,8 +57,6 @@ df_mipita_filter = df_mipita_all.query('icao.isin(@input_icao)')
 #-----------------------------------------------------------------------------------
 
 st.image('ita-logo.png', width=200)
-
-st.apptitle = 'MIPITA v1.0'
 
 
 st.title('PROJETO IMPACTO O1-E7-IMPACTO')
