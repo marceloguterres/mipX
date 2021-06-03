@@ -27,9 +27,10 @@ list_templates =  ['presentation','ggplot2', 'seaborn', 'simple_white', 'plotly'
                    'plotly_white', 'plotly_dark', 'xgridoff','ygridoff', 'gridon', 'none']
 
 
-list_mults = ["eDN_produto", "eD_adicionado", "eDN_adicionado", "tDN_adicionado",
-              "eD_renda", "eDN_renda", "tDN_renda",	"eD_emprego",	"eDN_emprego",
-              "tDN_emprego"]
+list_mults = ['eD_produto', 'eDN_produto', 'eD_adicionado','eDN_adicionado', 
+              'tD_adicionado', 'tDN_adicionado', 
+              'eD_renda','eDN_renda', 'tD_renda', 'tDN_renda', 
+              'eD_emprego', 'eDN_emprego','tD_emprego', 'tDN_emprego']
 
 
 list_icao = ['ALL','ARP_SBCT', 'ARP_SBFL', 'ARP_SBJV', 'ARP_SBNF', 'MUN_SBGR',
@@ -65,7 +66,6 @@ st.title('PROJETO IMPACTO O1-E7-IMPACTO')
 
 st.markdown(""" 
             * APP MIPITA v 1.0;
-            * Data da versão: 2021.06.02;
             * Estudo de Caso: Região Litorânea de Santa Catarina;
             * Estudo de Caso: Região metropolitana de São Paulo.
             """)
