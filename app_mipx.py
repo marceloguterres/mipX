@@ -84,7 +84,7 @@ st.write(fig2)
 
 
 
-st.subheader('Tabela gera:') 
+st.subheader('Tabela geral') 
 
 # -- Notes on whitening
 
