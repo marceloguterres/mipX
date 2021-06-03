@@ -26,7 +26,8 @@ list_mults = ["eDN_produto", "eD_adicionado", "eDN_adicionado", "tDN_adicionado"
               "tDN_emprego"]
 
 
-df_mipita_all = pd.read_pickle("df_mipita_all.bz2")
+list_icao = ['ALL','ARP_SBCT', 'ARP_SBFL', 'ARP_SBJV', 'ARP_SBNF', 'MUN_SBGR',
+             'MUN_SBKP', 'MUN_SBSP', 'ARP_SBGR', 'ARP_SBKP', 'ARP_SBSP']
 
 
 
@@ -34,7 +35,19 @@ df_mipita_all = pd.read_pickle("df_mipita_all.bz2")
 input_template = st.sidebar.selectbox('Selecione o template?', list_templates)
 input_mult_01  = st.sidebar.selectbox('Selecione o multiplicador 1?', list_mults)
 input_mult_02  = st.sidebar.selectbox('Selecione o multiplicador 2?', list_mults)
+input_icao     = st.sidebar.multiselect("Selecione um ou mais aeroportos:", list_icao,
+                                        default=["ALL"])
 
+
+if "ALL" in input_icao:
+    input_icao = ['ARP_SBCT', 'ARP_SBFL', 'ARP_SBJV', 'ARP_SBNF', 'MUN_SBGR',
+             'MUN_SBKP', 'MUN_SBSP', 'ARP_SBGR', 'ARP_SBKP', 'ARP_SBSP']
+
+
+
+df_mipita_all = pd.read_pickle("df_mipita_all.bz2")
+
+df_mipita_filter = df_mipita_all.query('icao.isin(@input_icao)')
 
 
 
@@ -66,7 +79,7 @@ st.subheader("Gráfico da série temporal")
        
 st.write("*Multiplicador selecionado*:", input_mult_01)
 
-fig = px.line(df_mipita_all,
+fig = px.line(df_mipita_filter,
               x="ano", 
               y= input_mult_01, 
               color="icao", 
@@ -80,7 +93,7 @@ st.subheader("Gráfico de dispersão")
 st.write( input_mult_02 , " x" , input_mult_01)
 
          
-fig2 = px.scatter(df_mipita_all, x=input_mult_02, y= input_mult_01, template=input_template)
+fig2 = px.scatter(df_mipita_filter, x=input_mult_02, y= input_mult_01, template=input_template)
 
 
 st.write(fig2)
@@ -97,7 +110,7 @@ with st.beta_expander("Veja nota informativa"):
 
 """)
 
-st.dataframe(df_mipita_all.style.highlight_max(axis=0))
+st.dataframe(df_mipita_filter.style.highlight_max(axis=0))
 
 
 st.subheader("Sobre o app")
