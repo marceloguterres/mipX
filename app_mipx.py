@@ -27,7 +27,7 @@ list_templates =  ['presentation','ggplot2', 'seaborn', 'simple_white', 'plotly'
                    'plotly_white', 'plotly_dark', 'xgridoff','ygridoff', 'gridon', 'none']
 
 
-list_mults = ['eD_produto', 'eDN_produto', 'eD_adicionado','eDN_adicionado', 
+list_mults = ['eDN_produto','eD_produto', 'eD_adicionado','eDN_adicionado', 
               'tD_adicionado', 'tDN_adicionado', 
               'eD_renda','eDN_renda', 'tD_renda', 'tDN_renda', 
               'eD_emprego', 'eDN_emprego','tD_emprego', 'tDN_emprego']
@@ -39,7 +39,7 @@ list_icao = ['ALL','ARP_SBCT', 'ARP_SBFL', 'ARP_SBJV', 'ARP_SBNF', 'MUN_SBGR',
 
 #-----------------------------------------------------------------------------------
 
-st.sidebar.info("🎈**VERSÃO:** 2021.06.02 - [ITA](https://www.ita.br)" )
+st.sidebar.info("🎈**VERSÃO:** 2021.06.03 - [ITA](https://www.ita.br)" )
 input_template = st.sidebar.selectbox('Selecione o template?', list_templates)
 input_mult_01  = st.sidebar.selectbox('Selecione o multiplicador 1?', list_mults)
 input_mult_02  = st.sidebar.selectbox('Selecione o multiplicador 2?', list_mults)
