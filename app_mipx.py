@@ -58,7 +58,7 @@ st.markdown("""
  """)
      
     
-st.subheader("Gráfico da série temporal:") 
+st.subheader("Gráfico da série temporal") 
          
        
 st.write("*Multiplicador selecionado*:", input_mult_01)
@@ -72,7 +72,7 @@ fig = px.line(df_mipita_all,
 st.write(fig)
 
 
-st.subheader("Gráfico de dispersão:") 
+st.subheader("Gráfico de dispersão") 
 
 st.write( input_mult_02 , " x" , input_mult_01)
 
@@ -84,7 +84,7 @@ st.write(fig2)
 
 
 
-st.subheader('Tabela geral:') 
+st.subheader('Tabela gera:') 
 
 # -- Notes on whitening
 
