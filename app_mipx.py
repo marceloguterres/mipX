@@ -103,7 +103,8 @@ st.write(input_mult_02 , " x" , input_mult_01)
 
          
 fig2 = px.scatter(df_mipita_filter, x=input_mult_02, y= input_mult_01, 
-                  trendline="ols")
+                  trendline="ols",
+                  template=input_template)
 
 st.write(fig2)
 
@@ -144,7 +145,8 @@ fig4 = px.scatter(df_ic_95,
                   y = 'Mean',
                   color= 'icao',
                   error_y ='margem_erro',
-                  error_y_minus = 'margem_erro' )
+                  error_y_minus = 'margem_erro',
+                  template=input_template)
 
 
 st.write(fig4)           
