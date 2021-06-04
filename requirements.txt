@@ -3,4 +3,3 @@ streamlit
 plotly
 statsmodels
 researchpy
-get_def_mult
