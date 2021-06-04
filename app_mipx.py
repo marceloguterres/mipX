@@ -14,6 +14,15 @@ import get_def_mult
 
 #-----------------------------------------------------------------------------------
 
+def def_mult(input_mult):
+    df_def_mults  = pd.read_excel('data_mipita_def_mults.xls') 
+    dic_def_mults = df_def_mults.set_index('name_mult')['definicao'].to_dict()
+    output_mult = dic_def_mults[input_mult]    
+    return(output_mult)
+
+
+#-----------------------------------------------------------------------------------
+
 # Set page title and favicon.
 st.set_page_config(page_title="Projeto Impacto", page_icon='ita-logo.png')
 
@@ -97,8 +106,8 @@ st.markdown('***')
 st.subheader("Descrição dos Multiplicadores") 
 
 
-st.write("- ", input_mult_01, ": " , get_def_mult.def_mult(input_mult_01))
-st.write("- ", input_mult_02, ": " , get_def_mult.def_mult(input_mult_02))
+st.write("- ", input_mult_01, ": " ,  def_mult(input_mult_01))
+st.write("- ", input_mult_02, ": "  , def_mult(input_mult_02))
 
 
 st.markdown('***')
