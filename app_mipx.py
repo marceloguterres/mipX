@@ -13,24 +13,17 @@ import researchpy
 
 
 #-----------------------------------------------------------------------------------
-
-
-df_def_mults  = pd.read_excel('data_mipita_def_mults.xls') 
-dic_def_mults = df_def_mults.set_index('name_mult')['definicao'].to_dict()
-   
-
-
-
-#-----------------------------------------------------------------------------------
-
 # Set page title and favicon.
 st.set_page_config(page_title="Projeto Impacto", page_icon='ita-logo.png')
 
 
-#-----------------------------------------------------------------------------------
+#----------------------------------------------------------------------------------
+
+df_def_mults  = pd.read_excel('data_mipita_def_mults.xls') 
+
+dic_def_mults = df_def_mults.set_index('name_mult')['definicao'].to_dict()
 
 df_mipita_all = pd.read_pickle("df_mipita_all.bz2")
-
 
 
 list_templates =  ['presentation','ggplot2', 'seaborn', 'simple_white', 'plotly',
@@ -46,8 +39,6 @@ list_mults = ['eDN_produto','eD_produto', 'eD_adicionado','eDN_adicionado',
 list_icao = ['ALL','ARP_SBCT', 'ARP_SBFL', 'ARP_SBJV', 'ARP_SBNF', 'MUN_SBGR',
              'MUN_SBKP', 'MUN_SBSP', 'ARP_SBGR', 'ARP_SBKP', 'ARP_SBSP']
 
-
-#-----------------------------------------------------------------------------------
 
 
 #-----------------------------------------------------------------------------------
