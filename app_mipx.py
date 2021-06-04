@@ -10,14 +10,7 @@ import pandas as pd
 import streamlit as st
 import plotly.express as px
 import researchpy
-
-#-----------------------------------------------------------------------------------
-
-def def_mult(input_mult):
-    df_def_mults  = pd.read_excel('data_mipita_def_mults.xls') 
-    dic_def_mults = df_def_mults.set_index('name_mult')['definicao'].to_dict()
-    output_mult = dic_def_mults[input_mult]    
-    return(output_mult)
+import get_def_mult
 
 #-----------------------------------------------------------------------------------
 
@@ -77,7 +70,7 @@ df_mipita_filter = df_mipita_all.query('icao.isin(@input_icao)')
 
 #-----------------------------------------------------------------------------------
 
-st.image('images/ita-logo.png', width=200)
+st.image('ita-logo.png', width=200)
 
 
 st.title('PROJETO IMPACTO O1-E7-IMPACTO')
