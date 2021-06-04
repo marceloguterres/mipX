@@ -10,17 +10,17 @@ import pandas as pd
 import streamlit as st
 import plotly.express as px
 import researchpy
-
+import get_def_mult
 
 #-----------------------------------------------------------------------------------
 
 # Set page title and favicon.
-st.set_page_config(page_title="Projeto Impacto", page_icon='ita-logo.png')
+st.set_page_config(page_title="Projeto Impacto", page_icon='images/ita-logo.png')
 
 
 #-----------------------------------------------------------------------------------
 
-df_mipita_all = pd.read_pickle("df_mipita_all.bz2")
+df_mipita_all = pd.read_pickle("datas/df_mipita_all.bz2")
 
 
 
@@ -40,10 +40,20 @@ list_icao = ['ALL','ARP_SBCT', 'ARP_SBFL', 'ARP_SBJV', 'ARP_SBNF', 'MUN_SBGR',
 
 #-----------------------------------------------------------------------------------
 
+
+#-----------------------------------------------------------------------------------
+
+st.sidebar.title('Navegação')
+
 st.sidebar.info("🎈**VERSÃO:** 2021.06.03 - [ITA](https://www.ita.br)" )
+
+
 input_template = st.sidebar.selectbox('Selecione o template?', list_templates)
+
 input_mult_01  = st.sidebar.selectbox('Selecione o multiplicador 1?', list_mults)
+
 input_mult_02  = st.sidebar.selectbox('Selecione o multiplicador 2?', list_mults)
+
 input_icao     = st.sidebar.multiselect("Selecione um ou mais aeroportos:", list_icao,
                                         default=["ALL"])
 
@@ -60,7 +70,7 @@ df_mipita_filter = df_mipita_all.query('icao.isin(@input_icao)')
 
 #-----------------------------------------------------------------------------------
 
-st.image('ita-logo.png', width=200)
+st.image('images/ita-logo.png', width=200)
 
 
 st.title('PROJETO IMPACTO O1-E7-IMPACTO')
@@ -78,7 +88,20 @@ st.markdown("""
             * Use o menu à esquerda para selecionar os dados e definir os parâmetros do gráfico;
             * Seus gráficos aparecerão abaixo.
  """)
-     
+   
+
+
+st.markdown('***')
+  
+#-----------------------------------------------------------------------------------
+st.subheader("Descrição dos Multiplicadores") 
+
+
+st.write("- ", input_mult_01, ": " , get_def_mult.def_mult(input_mult_01))
+st.write("- ", input_mult_02, ": " , get_def_mult.def_mult(input_mult_02))
+
+
+st.markdown('***')
     
 #-----------------------------------------------------------------------------------
 st.subheader("Análise temporal") 
@@ -94,7 +117,7 @@ fig = px.line(df_mipita_filter,
 
 st.write(fig)
 
-
+st.markdown('***')
 #-----------------------------------------------------------------------------------
 
 st.subheader("Análise da tendência geral") 
@@ -113,10 +136,12 @@ results_ols_all = px.get_trendline_results(fig2)
 
 st.write(results_ols_all.px_fit_results.iloc[0].summary())
 
-
+st.markdown('***')
 #-----------------------------------------------------------------------------------
 
 st.subheader("Análise da tendência por aeroporto") 
+
+st.write(input_mult_02 , " x" , input_mult_01)
 
 fig3 = px.scatter(df_mipita_filter, x=input_mult_02, y= input_mult_01, 
                   trendline="ols",
@@ -125,7 +150,7 @@ fig3 = px.scatter(df_mipita_filter, x=input_mult_02, y= input_mult_01,
 
 
 st.write(fig3)
-
+st.markdown('***')
 #-----------------------------------------------------------------------------------
 
 st.subheader("Intervalo de Confiança da Média") 
@@ -150,6 +175,7 @@ fig4 = px.scatter(df_ic_95,
 
 
 st.write(fig4)           
+st.markdown('***')
 
 #-----------------------------------------------------------------------------------
 
@@ -157,15 +183,12 @@ st.subheader('Tabela geral')
 
 # -- Notes on whitening
 
-with st.beta_expander("Veja nota informativa"):
-    st.markdown("""
-                * Os valores em amarelo correspondem aos máximos de cada coluna. 
-
-""")
+with st.beta_expander("Veja nota informativa:"):
+    st.markdown("""* Os valores em amarelo correspondem aos máximos de cada coluna. """)
 
 st.dataframe(df_mipita_filter.style.highlight_max(axis=0))
 
-
+st.markdown('***')
 st.subheader("Sobre o app")
 st.markdown("""
  * Este app foi construído pelo ITA para apresentar as ferramentas da metodologia IMPACTO desenvolvidas para SAC ;
