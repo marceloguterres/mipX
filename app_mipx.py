@@ -15,12 +15,12 @@ import get_def_mult
 #-----------------------------------------------------------------------------------
 
 # Set page title and favicon.
-st.set_page_config(page_title="Projeto Impacto", page_icon='images/ita-logo.png')
+st.set_page_config(page_title="Projeto Impacto", page_icon='ita-logo.png')
 
 
 #-----------------------------------------------------------------------------------
 
-df_mipita_all = pd.read_pickle("datas/df_mipita_all.bz2")
+df_mipita_all = pd.read_pickle("df_mipita_all.bz2")
 
 
 
