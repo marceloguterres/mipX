@@ -14,11 +14,11 @@ import researchpy
 
 #-----------------------------------------------------------------------------------
 
-def def_mult(input_mult):
-    df_def_mults  = pd.read_excel('data_mipita_def_mults.xls') 
-    dic_def_mults = df_def_mults.set_index('name_mult')['definicao'].to_dict()
-    output_mult = dic_def_mults[input_mult]    
-    return(output_mult)
+
+df_def_mults  = pd.read_excel('data_mipita_def_mults.xls') 
+dic_def_mults = df_def_mults.set_index('name_mult')['definicao'].to_dict()
+   
+
 
 
 #-----------------------------------------------------------------------------------
@@ -106,8 +106,8 @@ st.markdown('***')
 st.subheader("Descrição dos Multiplicadores") 
 
 
-st.write("- ", input_mult_01, ": " ,  def_mult(input_mult_01))
-st.write("- ", input_mult_02, ": "  , def_mult(input_mult_02))
+st.write("- ", input_mult_01, ": " ,  dic_def_mults[input_mult_01])
+st.write("- ", input_mult_02, ": "  , dic_def_mults[input_mult_02])
 
 
 st.markdown('***')
