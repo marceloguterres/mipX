@@ -9,6 +9,7 @@ Created on Thu May 13 09:40:48 2021
 import pandas as pd
 import streamlit as st
 import plotly.express as px
+import researchpy
 
 
 #-----------------------------------------------------------------------------------
@@ -123,6 +124,30 @@ fig3 = px.scatter(df_mipita_filter, x=input_mult_02, y= input_mult_01,
 
 
 st.write(fig3)
+
+#-----------------------------------------------------------------------------------
+
+st.subheader("Intervalo de Confiança da Média") 
+
+st.write("*Multiplicador selecionado*:", input_mult_01)
+
+df_ic_95 = researchpy.summary_cont(df_mipita_filter[input_mult_01].groupby(df_mipita_filter['icao']))
+df_ic_95.reset_index(inplace=True)
+
+df_ic_95['margem_erro'] = df_ic_95['95% Conf.'] - df_ic_95["Mean"] 
+
+st.write(df_ic_95)
+
+
+fig4 = px.scatter(df_ic_95, 
+                  x = 'icao', 
+                  y = 'Mean',
+                  color= 'icao',
+                  error_y ='margem_erro',
+                  error_y_minus = 'margem_erro' )
+
+
+st.write(fig4)           
 
 #-----------------------------------------------------------------------------------
 
