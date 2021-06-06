@@ -117,7 +117,7 @@ st.subheader("Descrição dos Multiplicadores")
 
 st.write("- ", input_mult_01, ": " ,  dic_def_mults[input_mult_01])
 st.write("- ", input_mult_02, ": "  , dic_def_mults[input_mult_02])
-
+st.write("- ", input_mult_03, ": "  , dic_def_mults[input_mult_03])
 
 st.markdown('***')
     
