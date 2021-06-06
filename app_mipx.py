@@ -43,18 +43,14 @@ list_icao = ['ALL','ARP_SBCT', 'ARP_SBFL', 'ARP_SBJV', 'ARP_SBNF', 'MUN_SBGR',
 
 #-----------------------------------------------------------------------------------
 
-st.sidebar.title('Navegação')
-
-st.sidebar.info("🎈**VERSÃO:** 2021.06.03 - [ITA](https://www.ita.br)" )
-
-
-input_template = st.sidebar.selectbox('Selecione o template?', list_templates)
-
-input_mult_01  = st.sidebar.selectbox('Selecione o multiplicador 1?', list_mults)
-
-input_mult_02  = st.sidebar.selectbox('Selecione o multiplicador 2?', list_mults)
-
-input_icao     = st.sidebar.multiselect("Selecione um ou mais aeroportos:", list_icao,
+with st.sidebar:
+    
+    st.title('Navegação')
+    st.info("🎈**VERSÃO:** 2021.06.03 - [ITA](https://www.ita.br)" )
+    input_template = st.selectbox('Selecione o template?', list_templates)
+    input_mult_01  = st.selectbox('Selecione o multiplicador 1?', list_mults)
+    input_mult_02  = st.selectbox('Selecione o multiplicador 2?', list_mults)
+    input_icao     = st.multiselect("Selecione um ou mais aeroportos:", list_icao,
                                         default=["ALL"])
 
 
@@ -151,6 +147,24 @@ fig3 = px.scatter(df_mipita_filter, x=input_mult_02, y= input_mult_01,
 
 st.write(fig3)
 st.markdown('***')
+
+
+#-----------------------------------------------------------------------------------
+
+st.subheader("Box Plots") 
+st.write("*Multiplicador selecionado*:", input_mult_01)
+
+
+fig_bp = px.box(df_mipita_filter, 
+                x = 'icao', 
+                y= input_mult_01,
+                color= 'icao',
+                points="all",
+                template=input_template)
+st.write(fig_bp)   
+
+st.markdown('***')
+
 #-----------------------------------------------------------------------------------
 
 st.subheader("Intervalo de Confiança da Média") 
