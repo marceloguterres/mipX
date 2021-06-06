@@ -10,6 +10,7 @@ import pandas as pd
 import streamlit as st
 import plotly.express as px
 import researchpy
+import seaborn as sns
 
 
 #-----------------------------------------------------------------------------------
@@ -30,10 +31,24 @@ list_templates =  ['presentation','ggplot2', 'seaborn', 'simple_white', 'plotly'
                    'plotly_white', 'plotly_dark', 'xgridoff','ygridoff', 'gridon', 'none']
 
 
-list_mults = ['eDN_produto','eD_produto', 'eD_adicionado','eDN_adicionado', 
-              'tD_adicionado', 'tDN_adicionado', 
-              'eD_renda','eDN_renda', 'tD_renda', 'tDN_renda', 
-              'eD_emprego', 'eDN_emprego','tD_emprego', 'tDN_emprego']
+list_mults_01 = ['eDN_produto','eD_produto', 'eD_adicionado','eDN_adicionado', 
+                  'tD_adicionado', 'tDN_adicionado', 
+                  'eD_renda','eDN_renda', 'tD_renda', 'tDN_renda', 
+                  'eD_emprego', 'eDN_emprego','tD_emprego', 'tDN_emprego']
+
+
+list_mults_02 = ['eD_renda','eDN_produto','eD_produto', 'eD_adicionado','eDN_adicionado', 
+                 'tD_adicionado', 'tDN_adicionado', 
+                 'tD_renda', 'tDN_renda', 
+                 'eD_emprego', 'eDN_emprego','tD_emprego', 'tDN_emprego']
+
+
+list_mults_03 = ['eD_emprego', 'eD_renda','eDN_produto','eD_produto', 'eD_adicionado','eDN_adicionado', 
+                 'tD_adicionado', 'tDN_adicionado', 
+                 'tD_renda', 'tDN_renda', 
+                  'eDN_emprego','tD_emprego', 'tDN_emprego']
+
+
 
 
 list_icao = ['ALL','ARP_SBCT', 'ARP_SBFL', 'ARP_SBJV', 'ARP_SBNF', 'MUN_SBGR',
@@ -46,10 +61,17 @@ list_icao = ['ALL','ARP_SBCT', 'ARP_SBFL', 'ARP_SBJV', 'ARP_SBNF', 'MUN_SBGR',
 with st.sidebar:
     
     st.title('Navegação')
+    
     st.info("🎈**VERSÃO:** 2021.06.03 - [ITA](https://www.ita.br)" )
+    
     input_template = st.selectbox('Selecione o template?', list_templates)
-    input_mult_01  = st.selectbox('Selecione o multiplicador 1?', list_mults)
-    input_mult_02  = st.selectbox('Selecione o multiplicador 2?', list_mults)
+    
+    input_mult_01  = st.selectbox('Selecione o multiplicador 1?', list_mults_01)
+    
+    input_mult_02  = st.selectbox('Selecione o multiplicador 2?', list_mults_02)
+    
+    input_mult_03  = st.selectbox('Selecione o multiplicador 3?', list_mults_03)
+    
     input_icao     = st.multiselect("Selecione um ou mais aeroportos:", list_icao,
                                         default=["ALL"])
 
@@ -118,10 +140,10 @@ st.markdown('***')
 
 st.subheader("Análise da tendência geral") 
 
-st.write(input_mult_02 , " x" , input_mult_01)
+st.write(input_mult_01 , " x" , input_mult_02)
 
          
-fig2 = px.scatter(df_mipita_filter, x=input_mult_02, y= input_mult_01, 
+fig2 = px.scatter(df_mipita_filter, x=input_mult_01, y= input_mult_02, 
                   trendline="ols",
                   template=input_template)
 
@@ -137,9 +159,9 @@ st.markdown('***')
 
 st.subheader("Análise da tendência por aeroporto") 
 
-st.write(input_mult_02 , " x" , input_mult_01)
+st.write(input_mult_01 , " x" , input_mult_02)
 
-fig3 = px.scatter(df_mipita_filter, x=input_mult_02, y= input_mult_01, 
+fig3 = px.scatter(df_mipita_filter, x=input_mult_01, y= input_mult_02, 
                   trendline="ols",
                   color="icao",
                   template=input_template)
@@ -148,7 +170,19 @@ fig3 = px.scatter(df_mipita_filter, x=input_mult_02, y= input_mult_01,
 st.write(fig3)
 st.markdown('***')
 
+#-----------------------------------------------------------------------------------
 
+st.subheader("Pairplots") 
+
+
+fig_hist_01 = sns.pairplot(df_mipita_filter[['icao', input_mult_01, input_mult_02, input_mult_03]],
+                           hue="icao")
+
+
+st.pyplot(fig_hist_01)
+    
+
+st.markdown('***')
 #-----------------------------------------------------------------------------------
 
 st.subheader("Box Plots") 
