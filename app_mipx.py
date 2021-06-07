@@ -309,11 +309,16 @@ st.subheader('Tabela geral')
 
 # -- Notes on whitening
 
-with st.beta_expander("Veja nota informativa:"):
-    st.markdown("""* Os valores em amarelo correspondem aos máximos de cada coluna. """)
+with st.beta_expander("Veja nota informativa sobre os multiplicadores:"):
+     st.write('input_mult_01:', dic_def_mults[input_mult_01])
+     st.write('input_mult_02:', dic_def_mults[input_mult_02])
+     st.write('input_mult_03:', dic_def_mults[input_mult_03])
 
+
+st.markdown("""* Os valores em amarelo correspondem aos máximos de cada coluna. """)
 st.dataframe(df_mipita_filter.style.highlight_max(axis=0))
 
+#-----------------------------------------------------------------------------------
 st.markdown('***')
 st.subheader("Sobre o app")
 st.markdown("""
