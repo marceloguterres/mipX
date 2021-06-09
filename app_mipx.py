@@ -40,7 +40,7 @@ list_mults_01 = ['eDN_produto',
                  'tD_adicionado', 'tDN_adicionado', 
                   'eD_renda','eDN_renda', 'tD_renda', 'tDN_renda', 
                   'eD_emprego', 'eDN_emprego','tD_emprego', 'tDN_emprego',
-                  'pax']
+                  'pax', 'BR']
 
 
 list_mults_02 = ['eD_renda',
@@ -48,7 +48,7 @@ list_mults_02 = ['eD_renda',
                  'tD_adicionado', 'tDN_adicionado', 
                  'eDN_renda', 'tD_renda', 'tDN_renda', 
                  'eD_emprego', 'eDN_emprego','tD_emprego', 'tDN_emprego',
-                 'pax']
+                 'pax','BR']
 
 
 list_mults_03 = ['eD_emprego', 
@@ -56,10 +56,10 @@ list_mults_03 = ['eD_emprego',
                  'tD_adicionado', 'tDN_adicionado', 
                  'eD_renda','eDN_renda', 'tD_renda', 'tDN_renda', 
                  'eDN_emprego','tD_emprego', 'tDN_emprego',
-                 'pax']
+                 'pax','BR']
 
 
-list_icao = ['ALL','ARP_SBCT', 'ARP_SBFL', 'ARP_SBJV', 'ARP_SBNF', 'MUN_SBGR',
+list_icao = ['ALL','BR','ARP_SBCT', 'ARP_SBFL', 'ARP_SBJV', 'ARP_SBNF', 'MUN_SBGR',
              'MUN_SBKP', 'MUN_SBSP', 'ARP_SBGR', 'ARP_SBKP', 'ARP_SBSP']
 
 
@@ -75,7 +75,7 @@ with st.sidebar:
     input_icao = st.sidebar.multiselect("Selecione um ou mais aeroportos:", list_icao, default=["ALL"])
 
     if "ALL" in input_icao:
-        input_icao = ['ARP_SBCT', 'ARP_SBFL', 'ARP_SBJV', 'ARP_SBNF', 
+        input_icao = ['BR','ARP_SBCT', 'ARP_SBFL', 'ARP_SBJV', 'ARP_SBNF', 
                   'MUN_SBGR', 'MUN_SBKP', 'MUN_SBSP', 
                   'ARP_SBGR', 'ARP_SBKP', 'ARP_SBSP']
 
