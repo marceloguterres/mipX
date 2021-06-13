@@ -38,9 +38,9 @@ list_templates =  ['presentation','ggplot2', 'seaborn', 'simple_white', 'plotly'
 list_mults_01 = ['eDN_produto',
                  'eD_produto', 'eD_adicionado','eDN_adicionado', 
                  'tD_adicionado', 'tDN_adicionado', 
-                  'eD_renda','eDN_renda', 'tD_renda', 'tDN_renda', 
-                  'eD_emprego', 'eDN_emprego','tD_emprego', 'tDN_emprego',
-                  'pax', 'BR']
+                 'eD_renda','eDN_renda', 'tD_renda', 'tDN_renda', 
+                 'eD_emprego', 'eDN_emprego','tD_emprego', 'tDN_emprego',
+                 'pax', 'pib','pib_pc']
 
 
 list_mults_02 = ['eD_renda',
@@ -48,7 +48,7 @@ list_mults_02 = ['eD_renda',
                  'tD_adicionado', 'tDN_adicionado', 
                  'eDN_renda', 'tD_renda', 'tDN_renda', 
                  'eD_emprego', 'eDN_emprego','tD_emprego', 'tDN_emprego',
-                 'pax','BR']
+                  'pax', 'pib','pib_pc']
 
 
 list_mults_03 = ['eD_emprego', 
@@ -56,7 +56,7 @@ list_mults_03 = ['eD_emprego',
                  'tD_adicionado', 'tDN_adicionado', 
                  'eD_renda','eDN_renda', 'tD_renda', 'tDN_renda', 
                  'eDN_emprego','tD_emprego', 'tDN_emprego',
-                 'pax','BR']
+                  'pax', 'pib','pib_pc']
 
 
 list_icao = ['ALL','BR','ARP_SBCT', 'ARP_SBFL', 'ARP_SBJV', 'ARP_SBNF', 'MUN_SBGR',
